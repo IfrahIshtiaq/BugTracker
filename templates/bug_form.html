@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Bug</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Bug</h1>
+    <form method="POST" action="/">
+        <label for="summary">Summary:</label>
+        <input type="text" id="summary" name="summary"><br><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea><br><br>
+        <label for="project_key">Project Key:</label>
+        <input type="text" id="project_key" name="project_key"><br><br>
+        <label for="issue_type">Issue Type:</label>
+        <input type="text" id="issue_type" name="issue_type"><br><br>
+        <label for="priority">Priority:</label>
+        <input type="text" id="priority" name="priority"><br><br>
+        <label for="reporter">Reporter:</label>
+        <input type="text" id="reporter" name="reporter"><br><br>
+        <label for="assignee">Assignee:</label>
+        <input type="text" id="assignee" name="assignee"><br><br>
+        <label for="labels">Labels:</label>
+        <input type="text" id="labels" name="labels"><br><br>
+        <input type="submit" value="Create Bug">
+    </form>
+    <hr>
+    <h2>Created Bugs</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Summary</th>
+            <th>Description</th>
+            <th>Project Key</th>
+            <th>Issue Type</th>
+            <th>Priority</th>
+            <th>Reporter</th>
+            <th>Assignee</th>
+            <th>Labels</th>
+        </tr>
+        {% for bug in bugs %}
+        <tr>
+            <td>{{ bug.id }}</td>
+            <td>{{ bug.summary }}</td>
+            <td>{{ bug.description }}</td>
+            <td>{{ bug.project_key }}</td>
+            <td>{{ bug.issue_type }}</td>
+            <td>{{ bug.priority }}</td>
+            <td>{{ bug.reporter }}</td>
+            <td>{{ bug.assignee }}</td>
+            <td>{{ bug.labels }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
